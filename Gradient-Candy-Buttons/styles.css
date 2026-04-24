@@ -1,0 +1,330 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Nunito', sans-serif;
+    padding: 40px 20px;
+    overflow: hidden;
+    position: relative;
+    background: linear-gradient(135deg, #efc6f0, #d4a0e8, #c98fd1, #e8b4f0, #dca9e0);
+    background-size: 300% 300%;
+    animation: float-bg 12s ease infinite;
+}
+
+
+/* Animations */
+@keyframes float-bg {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%;}
+}
+
+@keyframes blob1 {
+    0% , 100% { transform: translate(0,0) scale(1); }
+    33% { transform: translate(40px, -30px) scale(1.12);}
+    66% { transform: translate(-20px,20px) scale(.96);}
+}
+
+@keyframes blob2 {
+    0% , 100% { transform: translate(0,0) scale(1); }
+    33% { transform: translate(-50px, 30px) scale(1.08);}
+    66% { transform: translate(30px,-20px) scale(.96);}
+}
+
+@keyframes blob3 {
+    0% , 100% { transform: translate(0,0) scale(1); }
+    50% { transform: translate(20px,40px) scale(1.1);}
+}
+
+@keyframes drift-particle {
+    0% { transform: translateY(0) translateX(0) scale(1); opacity: 0;}
+    10% { opacity: 1;}
+    90% { opacity: 0.6; }
+    100% { transform: translateY(-120px)  translateX(30px) scale(0); opacity: 0;}
+}
+
+@keyframes shimmer {
+    0% { left: -120px;}
+    100% { left: 160%; }
+}
+
+@keyframes entrance {
+    0% { opacity: 0; transform: translateY(32px) scale(.094);}
+    100% { opacity: 1; transform: translateY(0) scale(1);}
+}
+
+@keyframes sparkle {
+    0%, 100% { opacity: 0; transform: scale(0) rotate(0deg);}
+    50% { opacity: 1; transform: scale(1) rotate(180deg); }
+}
+
+@keyframes bounce-press {
+    0%, 100% { transform: translateY(0);}
+    30% { transform: translateY(-6px);}
+    60% { transform: translateY(2px);}
+}
+
+/* End Animations */
+
+.blob {
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(60px);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.blob1 {
+    inline-size: 320px;
+    block-size: 320px;
+    background: rgba(200,130,220,.38);
+    top: -60px;
+    left: -60px;
+    animation: blob1 9s ease-in-out infinite;
+}
+
+.blob2 {
+    inline-size: 260px;
+    block-size: 260px;
+    background: rgba(160,110,210,.30);
+    bottom: -40px;
+    right: -40px;
+    animation: blob2 11s ease-in-out infinite;
+}
+
+.blob3 {
+    inline-size: 180px;
+    block-size: 180px;
+    background: rgba(255,190,230,.35);
+    top: 45%;
+    left: 55%;
+    animation: blob3 7s ease-in-out infinite;
+}
+
+.particles {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.particle {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255,255,255,.6);
+    animation: drift-particle linear infinite;
+}
+
+.container {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    max-width: 360px;
+}
+
+.clay-btn {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    padding: 18px 28px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 999px;
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.15rem;
+    letter-spacing: .6px;
+    text-align: center;
+    transition: transform .22s ease, box-shadow .22s ease, filter .22s ease, background .22s ease;
+    isolation: isolate;
+}
+
+.clay-btn:nth-child(1) {
+    animation: entrance .6s cubic-bezier(.34,1.56,.64,1) .2s both;
+}
+.clay-btn:nth-child(2) {
+    animation: entrance .6s cubic-bezier(.34,1.56,.64,1) .35s both;
+}
+.clay-btn:nth-child(3) {
+    animation: entrance .6s cubic-bezier(.34,1.56,.64,1) .50s both;
+}
+.clay-btn:nth-child(4) {
+    animation: entrance .6s cubic-bezier(.34,1.56,.64,1) .65s both;
+}
+.clay-btn:nth-child(5) {
+    animation: entrance .6s cubic-bezier(.34,1.56,.64,1) .80s both;
+}
+
+.clay-btn span {
+    position: relative;
+    z-index: 3;
+    display: inline-block;
+    transition: letter-spacing .3s ease;;
+}
+
+.clay-btn::before, .clay-btn::after {
+    content: "";
+    position: absolute;
+    pointer-events: none;
+    transition: all .28 ease;
+}
+
+.clay-btn::before {
+    z-index: 1;
+    left: 10%;
+    top: 8%;
+    inline-size: 80%;
+    block-size: 44%;
+    border-radius: 999px;
+    background: linear-gradient(to bottom, rgba(2555,255,255,.78), rgba(255,255,255,.14));
+    filter: blur(1.5px);
+}
+
+.clay-btn::after {
+    z-index: 0;
+    right: 8%;
+    bottom: 8%;
+    inline-size: 42%;
+    block-size: 58%;
+    border-radius: 50%;
+    background: rgba(255,255,255,.18);
+    filter: blur(10px);
+}
+
+.shimmer {
+    position: absolute;
+    top: 0;
+    left: -120px;
+    inline-size: 60%;
+    block-size: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,.35), transparent);
+    z-index: 5;
+    border-radius: 999px;
+    pointer-events: none;
+    animation: shimmer 3.5s ease-in-out infinite;
+}
+
+.glow-ring {
+    position: absolute;
+    inset: -3px;
+    border-radius: 999px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .3s ease;
+    z-index: -1;
+}
+
+.sparkle-dot {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #fff;
+    pointer-events: none;
+    z-index: 6;
+    animation: sparkle 2.8s ease-in-out infinite;
+}
+
+.clay-btn:hover { 
+    transform: translateY(-3px) scale(1.015);
+    filter: saturate(1.03);
+    border: none;
+    outline: none;
+}
+
+.clay-btn:hover span {
+    letter-spacing: 1.2px;
+}
+
+.clay-btn:hover .glow-ring { opacity: 1;}
+.clay-btn:focus { border: none; outline: none;}
+.clay-btn:active {
+    transform: translateY(1px) scale(0.975);
+    animation: bounce-press .35s ease forwards;
+}
+
+/* Strawberry button cream */
+.btn1 {
+    color: #8f2d5d;
+    background: linear-gradient(145deg, #ffd5e7, #f8b8d3);
+    box-shadow: 0 16px 28px rgba(163,70,115,.24), 0 6px 10px rgba(163,70,115,.14),
+    inset -8px -8px 14px rgba(255,255,255,.78), inset 8px 8px 14px rgba(214,130,164,.30),
+    inset 0 0 0 1px rgba(255,255,255,.35);
+}
+.btn1:hover {
+    box-shadow: 0 20px 34px rgba(163,70,115,.28), 0 8px 14px rgba(163,70,115,.18),
+    inset -9px -9px 15px rgba(255,255,255,.82), inset 9px 9px 15px rgba(214,130,164,.32),
+    inset 0 0 0 1px rgba(255,255,255,.42);
+}
+.btn1 .glow-ring { box-shadow: 0 0  18px 6px rgba(248,140,190,.45);}
+.btn1:active {
+    box-shadow: inset 10px 10px 18px rgba(210,120,155,.36), inse -8px -8px 16px rgba(255,255,255,.72);
+}
+
+/* Blueberry Button pop */
+.btn2 {
+    color: #355d9b;
+    background: linear-gradient(145deg, #d8e9ff, #bcd8ff);
+    box-shadow: 0 18px 30px rgba(72,112,176,.22), 0 5px 12px rgba(72,112,176,.14),
+    inset -8px -8px 14px rgba(255,255,255,.82), inset 8px 8px 14px rgba(122,165,235,.28),
+    inset 0 0 0 1px rgba(255,255,255,.38);
+}
+.btn2:hover {
+    box-shadow: 0 22px 36px rgba(72,112,176,.26), 0 8px 15px rgba(72,112,176,.16),
+    inset -10px -10px 16px rgba(255,255,255,.86), inset 10px 10px 16px rgba(122,165,235,.30),
+    inset 0 0 0 1px rgba(255,255,255,.38);
+}
+.btn2 .glow-ring { box-shadow: 0 0  18px 6px rgba(150,200,255,.45);}
+.btn2:active {
+    box-shadow: inset 10px 10px 18px rgba(110,155,255,.34), inset -8px -8px 16px rgba(255,255,255,.72);
+}
+
+/* Mint Button Bubble */
+.btn3 {
+    color: #39785b;
+    background: linear-gradient(145deg, #d7f9e6, #bbefd3);
+    box-shadow: 0 18px 32px rgba(72,148,111,.22), 0 6px 10px rgba(72,148,111,.12),
+    inset -9px -9px 16px rgba(255,255,255,.82), inset 9px 9px 16px rgba(111,190,145,.28),
+    inset 0 0 0 1px rgba(255,255,255,.36);
+}
+.btn3:hover {
+    box-shadow: 0 22px 36px rgba(72,148,111,.26), 0 8px 14px rgba(72,148,111,.16),
+    inset -10px -10px 17px rgba(255,255,255,.88), inset 10px 10px 17px rgba(111,190,145,.30),
+    inset 0 0 0 18px rgba(160,245,205,.28);
+}
+.btn3 .glow-ring { box-shadow: 0 0  18px 6px rgba(130,230,180,.45);}
+.btn3:active {
+    box-shadow: inset 10px 10px 18px rgba(98,175,132,.34), inset -8px -8px 16px rgba(255,255,255,.74);
+}
+
+/* Lemon Puff */
+.btn4 {
+    color: #8c6a17;
+    background: linear-gradient(145deg, #fff0b8, #ffe283);
+    box-shadow: 0 18px 32px rgba(184,146,36,0.24), 0 6px 10px rgba(184,146,36,0.12), inset -9px -9px 16px rgba(255,255,255,0.80), inset 9px 9px 16px rgba(240,201,89,0.30), inset 0 0 0 1px rgba(255,255,255,0.35);
+}
+.btn4:hover { box-shadow: 0 22px 38px rgba(184,146,36,0.28), 0 8px 14px rgba(184,146,36,0.16), inset -10px -10px 17px rgba(255,255,255,0.84), inset 10px 10px 17px rgba(240,201,89,0.32), 0 0 20px rgba(255,234,150,0.34); }
+.btn4 .glow-ring { box-shadow: 0 0 18px 6px rgba(255,220,100,0.50); }
+.btn4:active { box-shadow: inset 10px 10px 18px rgba(226,187,72,0.34), inset -8px -8px 16px rgba(255,255,255,0.72); }
+
+/* Lavender Glass */
+.btn5 {
+    color: #6e3a8a;
+    background: linear-gradient(145deg, rgba(255,255,255,0.50), rgba(244,221,255,0.72));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 18px 32px rgba(115,74,145,0.20), 0 6px 12px rgba(115,74,145,0.12), inset -8px -8px 14px rgba(255,255,255,0.72), inset 8px 8px 14px rgba(185,145,214,0.20), inset 0 0 0 1px rgba(255,255,255,0.38);
+}
+.btn5:hover { box-shadow: 0 22px 38px rgba(115,74,145,0.24), 0 8px 14px rgba(115,74,145,0.14), inset -10px -10px 16px rgba(255,255,255,0.74), inset 10px 10px 16px rgba(185,145,214,0.22), 0 0 20px rgba(240,214,255,0.32); background: linear-gradient(145deg, rgba(255,255,255,0.58), rgba(244,221,255,0.80)); }
+.btn5 .glow-ring { box-shadow: 0 0 18px 6px rgba(200,160,255,0.45); }
+.btn5:active { box-shadow: inset 10px 10px 18px rgba(170,128,196,0.24), inset -8px -8px 16px rgba(255,255,255,0.68); }
