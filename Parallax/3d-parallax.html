@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>3D Parallax</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div id="cur"></div>
+  <div id="cur-r"></div>
+
+  <div class="cm tl"></div>
+  <div class="cm tr"></div>
+  <div class="cm bl"></div>
+  <div class="cm br"></div>
+
+  <div id="scene">
+
+    <div class="pl" id="l0" data-d="0.010">
+      <canvas id="c0"></canvas>
+    </div>
+
+    <div class="pl" id="l1" data-d="0.025">
+      <canvas id="c1"></canvas>
+    </div>
+
+    <div class="pl" id="l2" data-d="0.048">
+      <canvas id="c2"></canvas>
+    </div>
+
+    <div class="pl" id="l3" data-d="0.070">
+      <canvas id="c3"></canvas>
+    </div>
+
+    <div class="pl" id="l4" data-d="0.100">
+      <canvas id="c4"></canvas>
+    </div>
+
+    <div class="pl" id="l5" data-d="0.145">
+      <canvas id="c5"></canvas>
+    </div>
+
+    <div class="pl" id="l-text" data-d="0.220">
+
+      <h1 class="title">
+        INTO<br>
+        THE<br>
+        <em>WILD</em>
+      </h1>
+
+      <p class="sub">where the horizon breathes</p>
+    </div>
+
+  </div>
+
+  <div id="vig"></div>
+  <div id="grain"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
