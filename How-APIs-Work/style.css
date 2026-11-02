@@ -1,0 +1,263 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg: #0d1021;
+  --panel: #161a33;
+  --line: #2b3160;
+  --text: #e9ecff;
+  --muted: #8a91c4;
+  --dns: #ffd166;
+  --tcp: #4cc9f0;
+  --tls: #b388ff;
+  --req: #ff9f43;
+  --res: #2ee59d;
+  --db: #ff6b9d;
+  --cache: #5eead4;
+}
+
+html, body { height: 100%; }
+
+body {
+  display: grid;
+  grid-template-rows: auto auto 1fr auto;
+  gap: 12px;
+  padding: 18px 24px;
+  overflow: hidden;
+  font-family: system-ui, sans-serif;
+  color: var(--text);
+  background: radial-gradient(circle at 30% 20%, #1c2150, var(--bg) 70%);
+}
+
+header { display: flex; align-items: center; gap: 14px; }
+h1 { font-size: 24px; font-weight: 800; }
+
+.chip {
+  padding: 5px 12px;
+  border-radius: 99px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #14172e;
+  background: var(--req);
+}
+
+.caption {
+  min-height: 2.6em;
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.3;
+  white-space: pre-line;
+  transition: opacity 0.25s;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 1fr 430px;
+  gap: 16px;
+  min-height: 0;
+}
+
+/* ===== STAGE ===== */
+.stage {
+  position: relative;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--line);
+  overflow: hidden;
+}
+
+.wires { position: absolute; inset: 0; width: 100%; height: 100%; }
+.wires line { stroke: var(--line); stroke-width: 3; stroke-dasharray: 8 8; }
+.wires line.secure { stroke: var(--tls); stroke-dasharray: none; opacity: 0.7; }
+
+.node {
+  position: absolute;
+  translate: -50% -50%;
+  width: 140px;
+  padding: 14px 8px;
+  border-radius: 16px;
+  text-align: center;
+  background: var(--panel);
+  border: 2px solid var(--line);
+  transition: border-color 0.3s, box-shadow 0.3s, scale 0.3s;
+}
+
+.node svg { width: 46px; height: 46px; stroke: var(--text); fill: none; stroke-width: 2; }
+.node b { display: block; margin-top: 4px; font-size: 16px; }
+.node small { color: var(--muted); font-size: 13px; }
+
+.node.on {
+  border-color: var(--req);
+  box-shadow: 0 0 24px rgba(255, 159, 67, 0.45);
+  scale: 1.06;
+}
+
+.lock {
+  position: absolute;
+  translate: -50% -50%;
+  font-size: 22px;
+  opacity: 0;
+}
+
+/* a message travelling between two nodes */
+.packet {
+  position: absolute;
+  translate: -50% -50%;
+  padding: 6px 12px;
+  border-radius: 99px;
+  font: 700 13px ui-monospace, monospace;
+  color: #14172e;
+  white-space: nowrap;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+  z-index: 5;
+}
+
+.packet.dns { background: var(--dns); }
+.packet.tcp { background: var(--tcp); }
+.packet.tls { background: var(--tls); }
+.packet.req { background: var(--req); }
+.packet.res { background: var(--res); }
+.packet.db { background: var(--db); }
+.packet.cache { background: var(--cache); }
+
+/* the profile your app shows at the end */
+.profile {
+  position: absolute;
+  translate: -50% 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 14px;
+  background: #fff;
+  color: #14172e;
+  font-size: 14px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+}
+
+.profile i {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  font-style: normal;
+  font-weight: 800;
+  color: #fff;
+  background: var(--tls);
+}
+
+.profile em {
+  padding: 2px 8px;
+  border-radius: 99px;
+  font-style: normal;
+  font-size: 11px;
+  font-weight: 800;
+  background: var(--res);
+}
+
+/* round-trip timing bar */
+.timing {
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  bottom: 14px;
+  display: flex;
+  height: 30px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.05);
+  font: 700 11px ui-monospace, monospace;
+}
+
+.timing span {
+  display: grid;
+  place-items: center;
+  color: #14172e;
+  white-space: nowrap;
+  overflow: hidden;
+  transition: flex-grow 0.5s;
+}
+
+.timing .total {
+  margin-left: auto;
+  padding: 0 10px;
+  color: var(--text);
+}
+
+/* ===== INSPECTOR ===== */
+.inspector {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  border-radius: 18px;
+  background: #0a0c1a;
+  border: 1px solid var(--line);
+  overflow: hidden;
+}
+
+.inspector-title {
+  padding: 12px 16px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--muted);
+  border-bottom: 1px solid var(--line);
+}
+
+pre {
+  padding: 14px 16px;
+  font: 17px/1.7 ui-monospace, monospace;
+  white-space: pre-wrap;
+}
+
+
+.k { color: var(--req); font-weight: 700; }
+.s { color: var(--res); }
+.n { color: var(--dns); }
+.h { color: var(--tcp); }
+.c { color: var(--muted); }
+.ok { color: var(--res); font-weight: 700; }
+.warn { color: var(--dns); font-weight: 700; }
+.err { color: var(--db); font-weight: 700; }
+
+/* ===== CONTROLS ===== */
+.controls { display: flex; align-items: center; gap: 8px; }
+
+.controls button {
+  width: 40px;
+  height: 36px;
+  border: 0;
+  border-radius: 10px;
+  color: var(--text);
+  background: var(--panel);
+  cursor: pointer;
+}
+
+.dots { display: flex; gap: 6px; margin-left: 8px; }
+
+.dots button {
+  width: 12px;
+  height: 12px;
+  padding: 0;
+  border-radius: 50%;
+  background: var(--line);
+}
+
+.dots button.on { background: var(--req); }
+
+/* video mode: no controls, and every change is drawn by the script */
+.video .controls { display: none; }
+.video * { transition: none !important; }
+
+/* ===== TALL SCREENS (phones) ===== */
+@media (max-aspect-ratio: 4/5) {
+  body { grid-template-rows: auto auto 1fr auto; padding: 16px; }
+  main { grid-template-columns: 1fr; grid-template-rows: 1.5fr 1fr; }
+  .caption { font-size: 26px; min-height: 2.6em; }
+  pre { font-size: 14px; padding: 10px 14px; }
+  .node { width: 98px; padding: 8px 4px; }
+  .node svg { width: 32px; height: 32px; }
+  .node b { font-size: 13px; }
+  .node small { font-size: 11px; }
+  .video { padding-bottom: 120px; }   /* room for the app's buttons */
+}
