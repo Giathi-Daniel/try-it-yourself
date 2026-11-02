@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How an API Call Works</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>How an API call works</h1>
+    <span class="chip" id="chip"></span>
+  </header>
+
+  <p class="caption" id="caption"></p>
+
+  <main>
+    <section class="stage" id="stage">
+      <svg class="wires" id="wires"></svg>
+      <div class="timing" id="timing"></div>
+    </section>
+
+    <aside class="inspector">
+      <div class="inspector-title" id="inspector-title"></div>
+      <pre id="inspector"></pre>
+    </aside>
+  </main>
+
+  <nav class="controls">
+    <button id="prev" aria-label="Previous step">◀</button>
+    <button id="play" aria-label="Play or pause">❚❚</button>
+    <button id="next" aria-label="Next step">▶</button>
+    <div class="dots" id="dots"></div>
+  </nav>
+
+  <script src="steps.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
