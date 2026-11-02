@@ -8,6 +8,7 @@ Short HTML/CSS mini-projects. No frameworks, no build step: open the HTML file i
 | [Brick-Wall-Drag-Drop](Brick-Wall-Drag-Drop) | Drag bricks into the gaps of a wall. Fill it and the wall shakes. |
 | [Gradient-Candy-Buttons](Gradient-Candy-Buttons) | Colourful gradient buttons in pure CSS. |
 | [Parallax](Parallax) | A 3D parallax effect. |
+| [Ragdoll-Walk](Ragdoll-Walk) | A physics ragdoll on a canvas that walks after your pointer. Grab it, throw it, and it gets back up. |
 | [Stick-Figure-Walk](Stick-Figure-Walk) | A stick figure walking past two trees, made with CSS keyframes. |
 
 ## Run any project
