@@ -1,0 +1,133 @@
+/* ===== PAGE ===== */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  font-family: system-ui, sans-serif;
+  background: radial-gradient(circle at 50% 30%,
+    #2b2350, #0e0c1d 70%);
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 48px;
+  padding: 48px;
+}
+
+/* ===== CARD: the 3D stage ===== */
+.card {
+  width: 260px;
+  height: 360px;
+  perspective: 1000px;   /* depth: smaller = stronger 3D */
+  outline: none;
+}
+
+/* .inner is what actually turns */
+.inner {
+  position: relative;
+  height: 100%;
+  transform-style: preserve-3d;   /* keep children in 3D */
+  transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* both sides sit on top of each other */
+.face {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 28px;
+  border-radius: 20px;
+  color: #fff;
+  backface-visibility: hidden;   /* hide the side facing away */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
+}
+
+/* ===== FRONT + BACK LOOK ===== */
+/* each card picks two colours */
+.flip-y { --c1: #3fb6ff; --c2: #2a4fd7; }
+.flip-x { --c1: #a374ff; --c2: #5a2fd0; }
+.door   { --c1: #ffb547; --c2: #e0551f; }
+
+.front {
+  background: linear-gradient(150deg, var(--c1), var(--c2));
+}
+
+.back {
+  background: linear-gradient(150deg, var(--c2), #1b1636);
+}
+
+.tag {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  padding: 4px 10px;
+  border-radius: 99px;
+  font-size: 12px;
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.18);
+}
+
+h2 { font-size: 30px; }
+h3 { font-size: 24px; }
+
+.price { font-size: 52px; font-weight: 800; }
+.price small { font-size: 18px; opacity: 0.7; }
+.hint { font-size: 14px; opacity: 0.6; }
+
+ul { list-style: none; text-align: center; line-height: 2; }
+
+button {
+  padding: 12px 26px;
+  border: 0;
+  border-radius: 99px;
+  font: inherit;
+  font-weight: 700;
+  color: var(--c2);
+  background: #fff;
+  cursor: pointer;
+}
+
+/* ===== EFFECT 1: FLIP Y ===== */
+.flip-y .back { transform: rotateY(180deg); }
+
+.flip-y:hover .inner,
+.flip-y:focus-within .inner {
+  transform: rotateY(180deg);
+}
+
+/* ===== EFFECT 2: FLIP X ===== */
+.flip-x .back { transform: rotateX(180deg); }
+
+.flip-x:hover .inner,
+.flip-x:focus-within .inner {
+  transform: rotateX(180deg);
+}
+
+/* ===== EFFECT 3: DOOR SWING ===== */
+.door .front {
+  transform-origin: left center;   /* the hinge */
+  transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.door:hover .front,
+.door:focus-within .front {
+  transform: rotateY(-80deg);
+}
+
+/* ===== ACCESSIBILITY ===== */
+.card:focus-visible .face {
+  outline: 3px solid #fff;
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .inner, .door .front { transition-duration: 0.01s; }
+}

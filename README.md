@@ -4,6 +4,7 @@ Short HTML/CSS mini-projects. No frameworks, no build step: open the HTML file i
 
 | Project | What it is |
 |---|---|
+| [3D-Flip-Cards](3D-Flip-Cards) | Pricing cards with three 3D hover flips: Flip Y, Flip X and a door swing. |
 | [Brick-Wall-Drag-Drop](Brick-Wall-Drag-Drop) | Drag bricks into the gaps of a wall. Fill it and the wall shakes. |
 | [Gradient-Candy-Buttons](Gradient-Candy-Buttons) | Colourful gradient buttons in pure CSS. |
 | [Parallax](Parallax) | A 3D parallax effect. |
