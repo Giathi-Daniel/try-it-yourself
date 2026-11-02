@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3D Flip Cards</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="cards">
+
+    <!-- 1. Flip around the Y axis (left to right) -->
+    <div class="card flip-y" tabindex="0">
+      <div class="inner">
+        <div class="face front">
+          <span class="tag">Flip Y</span>
+          <h2>Starter</h2>
+          <p class="price">$0<small>/mo</small></p>
+          <p class="hint">Hover me</p>
+        </div>
+        <div class="face back">
+          <h3>Starter</h3>
+          <ul><li>1 project</li><li>Basic stats</li><li>Email help</li></ul>
+          <button>Start free</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. Flip around the X axis (top to bottom) -->
+    <div class="card flip-x" tabindex="0">
+      <div class="inner">
+        <div class="face front">
+          <span class="tag">Flip X</span>
+          <h2>Pro</h2>
+          <p class="price">$12<small>/mo</small></p>
+          <p class="hint">Hover me</p>
+        </div>
+        <div class="face back">
+          <h3>Pro</h3>
+          <ul><li>10 projects</li><li>Full stats</li><li>Chat help</li></ul>
+          <button>Go Pro</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. Door swing: the front opens on a hinge -->
+    <div class="card door" tabindex="0">
+      <div class="inner">
+        <div class="face back">
+          <h3>Team</h3>
+          <ul><li>Unlimited</li><li>Team roles</li><li>Priority help</li></ul>
+          <button>Get Team</button>
+        </div>
+        <div class="face front">
+          <span class="tag">Door</span>
+          <h2>Team</h2>
+          <p class="price">$29<small>/mo</small></p>
+          <p class="hint">Hover me</p>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</body>
+</html>
