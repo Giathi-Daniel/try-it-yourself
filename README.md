@@ -8,6 +8,7 @@ Short web mini-projects. Most have no build step: open the HTML file in a browse
 | [Brick-Wall-Drag-Drop](Brick-Wall-Drag-Drop) | Drag bricks into the gaps of a wall. Fill it and the wall shakes. |
 | [Gradient-Candy-Buttons](Gradient-Candy-Buttons) | Colourful gradient buttons in pure CSS. |
 | [How-APIs-Work](How-APIs-Work) | An animated explainer of an API call: DNS, TCP, TLS, request, middleware, database and response. |
+| [How-Websites-Work](How-Websites-Work) | An animated explainer of what a website is: files, HTML, CSS, JS, the DOM, the render pipeline and the back-end. |
 | [Messy-To-Clean-API](Messy-To-Clean-API) | The same Express route written badly, then cleaned up with security and best practices. |
 | [Parallax](Parallax) | A 3D parallax effect. |
 | [Ragdoll-Walk](Ragdoll-Walk) | A physics ragdoll on a canvas that walks after your pointer. Grab it, throw it, and it gets back up. |
