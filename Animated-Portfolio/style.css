@@ -252,9 +252,12 @@ h2 {
 
 /* ---------- small screens, touch, reduced motion ---------- */
 
+@media (max-width: 1000px) {
+  .note { position: static; width: auto; margin-top: 1.5rem; }
+}
+
 @media (max-width: 800px) {
   :root { --margin: 2.6rem; }
-  .note { position: static; width: auto; margin-top: 1.5rem; }
   .row .d { display: none; }
 }
 
