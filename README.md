@@ -8,6 +8,7 @@ Short web mini-projects. Most have no build step: open the HTML file in a browse
 | [Animated-Portfolio](Animated-Portfolio) | A hand-made editorial portfolio: letter-by-letter masthead, margin numbers and a cursor-chasing project preview. |
 | [Brick-Wall-Drag-Drop](Brick-Wall-Drag-Drop) | Drag bricks into the gaps of a wall. Fill it and the wall shakes. |
 | [Cloth-Physics](Cloth-Physics) | A cloth you can drag, tear and mend, built on one Verlet equation in plain JavaScript. |
+| [CSS-Face-Portrait](CSS-Face-Portrait) | A portrait drawn with 19 divs and no images. It blinks and reacts on hover. |
 | [Gradient-Candy-Buttons](Gradient-Candy-Buttons) | Colourful gradient buttons in pure CSS. |
 | [How-APIs-Work](How-APIs-Work) | An animated explainer of an API call: DNS, TCP, TLS, request, middleware, database and response. |
 | [How-Websites-Work](How-Websites-Work) | An animated explainer of what a website is: files, HTML, CSS, JS, the DOM, the render pipeline and the back-end. |
