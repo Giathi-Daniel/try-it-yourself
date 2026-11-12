@@ -1,0 +1,38 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+  background: #0d1022;
+}
+
+canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  cursor: grab;
+  touch-action: none;
+}
+
+.eq {
+  position: fixed;
+  left: 50%;
+  bottom: 28px;
+  translate: -50% 0;
+  padding: 12px 22px;
+  border: 1px solid #2c3260;
+  border-radius: 14px;
+  background: #151a38;
+  color: #e8ebff;
+  font: 600 17px ui-monospace, Menlo, Consolas, monospace;
+  text-align: center;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.eq small {
+  display: block;
+  margin-top: 6px;
+  color: #8087b8;
+  font: 400 12px system-ui, sans-serif;
+}
