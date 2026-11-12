@@ -1,0 +1,219 @@
+:root {
+  --skin: #8f4d2e;
+  --shade: #74391f;
+  --hair: #17110f;
+  --wall: #a5a19b;
+  --blue: #1b7fdc;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: #1c1b22;
+}
+
+.portrait {
+  position: relative;
+  width: 500px;
+  height: 600px;
+  overflow: hidden;
+  border-radius: 28px;
+  background: var(--wall);
+}
+
+.portrait div { position: absolute; }
+
+/* ---------- head and hair ---------- */
+
+.head {
+  left: 146px;
+  top: 112px;
+  width: 208px;
+  height: 284px;
+  overflow: hidden;
+  border-radius: 50% 50% 46% 46% / 38% 38% 62% 62%;
+  background: var(--skin);
+}
+
+.hair {
+  left: 150px;
+  top: 84px;
+  width: 200px;
+  height: 130px;
+  border-radius: 90px 90px 20px 20px / 70px 70px 20px 20px;
+  background: var(--hair);
+}
+
+/* ---------- eyebrows and eyes ---------- */
+
+.brow {
+  top: 104px;
+  width: 58px;
+  height: 20px;
+  border-top: 7px solid var(--hair);
+  border-radius: 50%;
+  transition: translate 0.3s;
+}
+
+.brow.left { left: 30px; }
+.brow.right { right: 30px; }
+
+.eye {
+  top: 130px;
+  width: 36px;
+  height: 13px;
+  border-radius: 50% 50% 50% 50% / 75% 75% 25% 25%;
+  background: var(--hair);
+  animation: blink 4s infinite;
+}
+
+.eye.left { left: 40px; }
+.eye.right { right: 40px; }
+
+/* ---------- nose and the smile ---------- */
+
+.nose {
+  left: 76px;
+  top: 150px;
+  width: 56px;
+  height: 36px;
+  border-radius: 40% 40% 50% 50%;
+  background: var(--shade);
+  box-shadow: inset 14px -6px 0 -8px #5c2b17, inset -14px -6px 0 -8px #5c2b17;
+}
+
+.mouth {
+  left: 54px;
+  top: 206px;
+  width: 100px;
+  height: 44px;
+  overflow: hidden;
+  border-radius: 14px 14px 60px 60px;
+  background: #4b1715;
+  transition: height 0.3s;
+}
+
+.teeth {
+  left: 6px;
+  top: 0;
+  width: 88px;
+  height: 22px;
+  border-radius: 0 0 44px 44px;
+  background: #fbf7ef;
+}
+
+/* ---------- ears ---------- */
+
+.ear {
+  top: 232px;
+  width: 34px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--shade);
+}
+
+.ear.left { left: 128px; }
+.ear.right { right: 128px; }
+
+/* ---------- the beard: a dark circle with a skin-coloured chin on top ---------- */
+
+.beard {
+  left: 4px;
+  top: 150px;
+  width: 200px;
+  height: 140px;
+  border-radius: 50%;
+  background: var(--hair);
+}
+
+.chin {
+  left: 26px;
+  top: 128px;
+  width: 156px;
+  height: 128px;
+  border-radius: 40% 40% 50% 50%;
+  background: var(--skin);
+}
+
+.tache {
+  left: 46px;
+  top: 194px;
+  width: 116px;
+  height: 30px;
+  border-top: 8px solid var(--hair);
+  border-radius: 50%;
+}
+
+/* ---------- neck, shirt and collar ---------- */
+
+.neck {
+  left: 203px;
+  top: 360px;
+  width: 94px;
+  height: 110px;
+  border-radius: 0 0 40px 40px;
+  background: var(--shade);
+}
+
+.shirt {
+  left: 50px;
+  top: 440px;
+  width: 400px;
+  height: 200px;
+  border-radius: 110px 110px 0 0;
+  background-color: #e9472b;
+  background-image:
+    repeating-linear-gradient(90deg, transparent 0 36px, #1d2230cc 36px 58px, transparent 58px 84px, #fff6e8dd 84px 116px),
+    repeating-linear-gradient(0deg, transparent 0 36px, #1d2230cc 36px 58px, transparent 58px 84px, #fff6e8dd 84px 116px);
+}
+
+.collar {
+  top: 418px;
+  width: 78px;
+  height: 58px;
+  border-radius: 6px 6px 6px 26px;
+  background: #e9472b linear-gradient(90deg, transparent 35%, #fff6e8 35% 65%, transparent 65%);
+  box-shadow: 0 3px 0 #b5321c;
+}
+
+.collar.left { left: 152px; rotate: 24deg; }
+.collar.right { right: 152px; rotate: -24deg; scale: -1 1; }
+
+/* ---------- the blue door behind ---------- */
+
+.door {
+  right: 0;
+  top: 0;
+  width: 92px;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  padding: 16px 10px;
+  align-content: start;
+  background: var(--blue);
+  border-left: 8px solid #1668b8;
+}
+
+.door i {
+  height: 70px;
+  border-radius: 3px;
+  background: #9fb0b8;
+}
+
+/* ---------- a little life ---------- */
+
+@keyframes blink {
+  0%, 92%, 100% { scale: 1 1; }
+  96% { scale: 1 0.1; }
+}
+
+.portrait:hover .brow { translate: 0 -6px; }
+.portrait:hover .mouth { height: 52px; }
+
+@media (max-width: 540px) {
+  .portrait { scale: 0.7; }
+}
