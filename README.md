@@ -7,6 +7,7 @@ Short web mini-projects. Most have no build step: open the HTML file in a browse
 | [3D-Flip-Cards](3D-Flip-Cards) | Pricing cards with three 3D hover flips: Flip Y, Flip X and a door swing. |
 | [Animated-Portfolio](Animated-Portfolio) | A hand-made editorial portfolio: letter-by-letter masthead, margin numbers and a cursor-chasing project preview. |
 | [Brick-Wall-Drag-Drop](Brick-Wall-Drag-Drop) | Drag bricks into the gaps of a wall. Fill it and the wall shakes. |
+| [Checkout-Flow](Checkout-Flow) | A card checkout with a live card preview, Luhn validation and exact totals in plain JavaScript. |
 | [Cloth-Physics](Cloth-Physics) | A cloth you can drag, tear and mend, built on one Verlet equation in plain JavaScript. |
 | [CSS-Coffee-Cup](CSS-Coffee-Cup) | A coffee cup with rising steam, drawn with 11 elements of pure HTML and CSS. |
 | [CSS-Face-Portrait](CSS-Face-Portrait) | A portrait drawn with 19 divs and no images. It blinks and reacts on hover. |
