@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout demo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="bar"><b>parcel</b> Secure checkout <i>demo</i></header>
+
+  <main class="checkout">
+    <section>
+      <article class="step">
+        <h2><span>1</span> Delivery address</h2>
+        <p>Jane Doe, 12 Riverside Drive, Nairobi</p>
+      </article>
+
+      <article class="step">
+        <h2><span>2</span> Payment method</h2>
+        <div class="pay">
+          <div class="card">
+            <b id="brand">CARD</b>
+            <p id="showNumber">•••• •••• •••• ••••</p>
+            <small id="showName">YOUR NAME</small>
+            <small id="showExp">MM/YY</small>
+          </div>
+          <form id="form">
+            <label>Card number <input id="number" inputmode="numeric" autocomplete="cc-number" placeholder="4242 4242 4242 4242"></label>
+            <label>Name on card <input id="name" autocomplete="cc-name" placeholder="Jane Doe"></label>
+            <label>Expiry <input id="exp" inputmode="numeric" autocomplete="cc-exp" placeholder="MM/YY"></label>
+            <label>CVC <input id="cvc" inputmode="numeric" autocomplete="cc-csc" placeholder="123"></label>
+          </form>
+        </div>
+      </article>
+
+      <article class="step">
+        <h2><span>3</span> Review items</h2>
+        <ul id="items"></ul>
+      </article>
+    </section>
+
+    <aside class="summary">
+      <button id="place" disabled>Place your order</button>
+      <dl>
+        <dt>Items</dt><dd id="sub"></dd>
+        <dt>Delivery</dt><dd id="delivery"></dd>
+        <dt>Tax (16%)</dt><dd id="tax"></dd>
+        <dt>Order total</dt><dd id="total"></dd>
+      </dl>
+      <p id="note">Demo only. Nothing is charged or stored.</p>
+    </aside>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
