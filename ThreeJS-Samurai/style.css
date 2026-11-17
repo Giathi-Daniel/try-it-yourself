@@ -1,0 +1,22 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  overflow: hidden;
+  background: #f3d9c4;
+}
+
+canvas { display: block; }
+
+.hint {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  translate: -50% 0;
+  padding: 8px 18px;
+  border-radius: 99px;
+  background: #1d1a1fcc;
+  color: #f3d9c4;
+  font: 500 14px system-ui, sans-serif;
+  white-space: nowrap;
+  pointer-events: none;
+}

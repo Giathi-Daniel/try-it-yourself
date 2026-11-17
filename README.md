@@ -19,6 +19,7 @@ Short web mini-projects. Most have no build step: open the HTML file in a browse
 | [Parallax](Parallax) | A 3D parallax effect. |
 | [Ragdoll-Walk](Ragdoll-Walk) | A physics ragdoll on a canvas that walks after your pointer. Grab it, throw it, and it gets back up. |
 | [Stick-Figure-Walk](Stick-Figure-Walk) | A stick figure walking past two trees, made with CSS keyframes. |
+| [ThreeJS-Samurai](ThreeJS-Samurai) | A low-poly samurai in three.js from primitives only, with falling sakura petals and a sword strike. |
 
 ## Run any project
 
