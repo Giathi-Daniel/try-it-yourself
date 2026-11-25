@@ -12,7 +12,9 @@ Short web mini-projects. Most have no build step: open the HTML file in a browse
 | [Cloth-Physics](Cloth-Physics) | A cloth you can drag, tear and mend, built on one Verlet equation in plain JavaScript. |
 | [CSS-Coffee-Cup](CSS-Coffee-Cup) | A coffee cup with rising steam, drawn with 11 elements of pure HTML and CSS. |
 | [CSS-Face-Portrait](CSS-Face-Portrait) | A portrait drawn with 19 divs and no images. It blinks and reacts on hover. |
+| [Cursor-Spider](Cursor-Spider) | A black widow that follows your cursor, its legs stepping on their own with two-bone IK. |
 | [Day-Night-Toggle](Day-Night-Toggle) | A sun-to-moon switch in pure CSS: one checkbox, no JavaScript. |
+| [Double-Pendulum-Chaos](Double-Pendulum-Chaos) | Six double pendulums started 0.0001 rad apart, showing chaos with coloured trails. |
 | [Gradient-Candy-Buttons](Gradient-Candy-Buttons) | Colourful gradient buttons in pure CSS. |
 | [How-APIs-Work](How-APIs-Work) | An animated explainer of an API call: DNS, TCP, TLS, request, middleware, database and response. |
 | [How-Websites-Work](How-Websites-Work) | An animated explainer of what a website is: files, HTML, CSS, JS, the DOM, the render pipeline and the back-end. |
