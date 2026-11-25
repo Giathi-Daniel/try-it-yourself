@@ -1,0 +1,22 @@
+* { margin: 0; padding: 0; }
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+  background: #0b0d14;
+}
+
+canvas { display: block; }
+
+.info {
+  position: fixed;
+  top: 5vh;
+  left: 0;
+  right: 0;
+  color: #9aa3c7;
+  font: 14px/1.6 ui-monospace, Menlo, Consolas, monospace;
+  text-align: center;
+  pointer-events: none;
+}
+
+.info b, .info span { color: #ffd166; font-weight: 600; }
